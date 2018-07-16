@@ -1,4 +1,4 @@
-package example.akkacensus
+package ru.zhenik.opencensus.example.akkacensus
 
 import akka.http.scaladsl.model.{HttpRequest, Uri}
 

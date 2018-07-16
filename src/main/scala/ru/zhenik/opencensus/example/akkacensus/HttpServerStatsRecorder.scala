@@ -1,4 +1,4 @@
-package example.akkacensus
+package ru.zhenik.opencensus.example.akkacensus
 
 import akka.http.scaladsl.server.Directives.{extractRequestContext, mapRouteResult}
 import akka.http.scaladsl.server.RouteResult.{Complete, Rejected}
