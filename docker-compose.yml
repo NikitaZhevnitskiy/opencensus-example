@@ -1,0 +1,45 @@
+version: '3'
+services:
+#  http-server:
+#    build:
+#      context: ./http-scala
+#    command: "java -Dapp.port=9900 -Dprom.port=9901 -jar /bin/server.jar"
+#    ports:
+#      - "9900:9900"
+#      - "9901:9901"
+#
+#  http-client:
+#    build:
+#      context: ./http-scala
+#    command: "java -Ddest.host=http-server -Ddest.port=9900 -Dprom.port=9910 -jar /bin/client.jar"
+#    ports:
+#      - "9910:9910"
+#    depends_on:
+#      - http-server
+
+  webserver:
+    build: .
+    image: zhenik/opencesus-poc
+    ports:
+      - "7777:7777"
+      - "7778:7778"
+
+  prometheus:
+    image: prom/prometheus:v2.2.1
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - webserver
+
+  grafana:
+    image: grafana/grafana:5.0.3
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+    depends_on:
+      - prometheus
