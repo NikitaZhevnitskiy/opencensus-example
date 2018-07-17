@@ -1,22 +1,5 @@
 version: '3'
 services:
-#  http-server:
-#    build:
-#      context: ./http-scala
-#    command: "java -Dapp.port=9900 -Dprom.port=9901 -jar /bin/server.jar"
-#    ports:
-#      - "9900:9900"
-#      - "9901:9901"
-#
-#  http-client:
-#    build:
-#      context: ./http-scala
-#    command: "java -Ddest.host=http-server -Ddest.port=9900 -Dprom.port=9910 -jar /bin/client.jar"
-#    ports:
-#      - "9910:9910"
-#    depends_on:
-#      - http-server
-
   webserver:
     build: .
     image: zhenik/opencesus-poc
