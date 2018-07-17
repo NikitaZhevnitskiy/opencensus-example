@@ -1,2 +1,2 @@
 # Akka-opencesus-poc
-As example is used: https://github.com/rerorero/opencensus-prometheus-grafana-dashboard 
+Used as example : https://github.com/rerorero/opencensus-prometheus-grafana-dashboard 

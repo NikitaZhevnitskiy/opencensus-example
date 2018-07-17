@@ -12,6 +12,7 @@ import io.opencensus.tags.{TagValue, Tags}
 import scala.concurrent.ExecutionContext
 import scala.util.{Failure, Success, Try}
 
+// https://github.com/rerorero/opencensus-prometheus-grafana-dashboard
 class HttpServerStatsRecorder(private[this] val executionContext: ExecutionContext) {
   implicit val ec: ExecutionContext = executionContext
   import HttpServerStatsRecorder._
